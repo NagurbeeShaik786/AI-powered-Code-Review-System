@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Review System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI-Driven Code Review System</h1>
+            <p>Analyze your code for bugs, improvements, and best practices</p>
+        </header>
+
+        <div class="main-content">
+            <div class="editor-section">
+                <div class="editor-header">
+                    <label for="language">Language:</label>
+                    <select id="language">
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                    <button id="analyze-btn" class="btn-primary">🔍 Analyze Code</button>
+                </div>
+                
+                <div class="editor-container">
+                    <textarea id="code-editor" placeholder="Paste your code here for analysis..."></textarea>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing your code...</p>
+                </div>
+
+                <div id="results" style="display: none;">
+                    <div class="summary" id="summary"></div>
+                    
+                    <div class="issues-container">
+                        <div class="issue-category" id="bugs-section">
+                            <h3>🐛 Bugs & Errors</h3>
+                            <div id="bugs-list" class="issues-list"></div>
+                        </div>
+                        
+                        <div class="issue-category" id="warnings-section">
+                            <h3>⚠️ Warnings</h3>
+                            <div id="warnings-list" class="issues-list"></div>
+                        </div>
+                        
+                        <div class="issue-category" id="suggestions-section">
+                            <h3>💡 Suggestions</h3>
+                            <div id="suggestions-list" class="issues-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="error-message" class="error" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
